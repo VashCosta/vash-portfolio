@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVASH VEL C.S. — Digital Strategist | AI & Full-Stack Developer</title>
+    <meta name="description"
+        content="Personal cinematic portfolio of Vivash Vel C.S. — Digital Strategist, AI & Full-Stack Developer. Architecting scalable intelligent systems and high-impact digital growth strategies.">
+    <meta name="keywords"
+        content="Vivash Vel C.S, Vivash Vel, Digital Strategist, AI Developer, Full Stack Developer, Spring Boot, Generative AI, SEO, Google Ads, Meta Ads, Madurai, Kamaraj College">
+    <meta name="author" content="Vivash Vel C.S.">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VIVASH VEL C.S. — Digital Strategist | AI & Full-Stack Developer">
+    <meta property="og:description"
+        content="Quiet luxury with technological sophistication. Blending digital strategy, AI, and full-stack development to create measurable impact.">
+    <meta property="og:image" content="vash_port.jpeg">
+
+    <!-- Google Fonts: Cormorant Garamond / Cinzel for Luxury Serif + Syne & Plus Jakarta Sans for Modern Precision -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Preload hero video -->
+    <link rel="preload" as="video" href="port_video.mp4" type="video/mp4">
+</head>
+
+<body>
+    <!-- Cinematic Film Grain Overlay -->
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Section Warp Flash Layer -->
+    <div class="section-warp-flash" id="warp-flash" aria-hidden="true"></div>
+
+    <!-- Ambient Cinematic Lighting Mesh -->
+    <div class="ambient-mesh mesh-gold" aria-hidden="true"></div>
+    <div class="ambient-mesh mesh-red" aria-hidden="true"></div>
+    <div class="ambient-mesh mesh-dark" aria-hidden="true"></div>
+
+
+    <!-- Floating Navigation Bar -->
+    <header class="floating-nav-container" id="main-nav">
+        <nav class="floating-nav" aria-label="Main Navigation">
+            <a href="#hero" class="nav-brand" aria-label="Vivash Vel Home">
+                <span class="brand-name">VIVASH VEL</span>
+                <span class="brand-suffix">C.S.</span>
+                <span class="brand-dot"></span>
+            </a>
+
+            <div class="nav-links-wrapper" id="nav-links">
+                <a href="#hero" class="nav-item active" data-section="hero">
+                    <span class="nav-label">HOME</span>
+                </a>
+                <a href="#about" class="nav-item" data-section="about">
+                    <span class="nav-label">ABOUT</span>
+                </a>
+                <a href="#experience" class="nav-item" data-section="experience">
+                    <span class="nav-label">EXPERIENCE</span>
+                </a>
+                <a href="#projects" class="nav-item" data-section="projects">
+                    <span class="nav-label">PROJECTS</span>
+                </a>
+                <a href="#skills" class="nav-item" data-section="skills">
+                    <span class="nav-label">SKILLS</span>
+                </a>
+                <a href="#education" class="nav-item" data-section="education">
+                    <span class="nav-label">CREDENTIALS</span>
+                </a>
+                <a href="#contact" class="nav-item" data-section="contact">
+                    <span class="nav-label">CONTACT</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#contact" class="nav-cta-btn">
+                    <span>LET’S TALK</span>
+                    <svg class="cta-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle navigation menu"
+                    aria-expanded="false">
+                    <span class="bar top-bar"></span>
+                    <span class="bar mid-bar"></span>
+                    <span class="bar bot-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="hero" class="hero-section">
+
+            <!-- ★ CINEMATIC VIDEO BACKGROUND SYSTEM ★ -->
+            <div class="hero-video-stage" id="hero-video-stage" aria-hidden="true">
+                <!-- Static portrait layer: fallback & seamless post-video crossfade -->
+                <img id="hero-bg-img" class="hero-bg-img" src="vash_suit.jpeg" alt="Vivash Vel Portrait" aria-hidden="true">
+
+                <!-- Primary video layer: autoplay muted for browser compat -->
+                <video id="hero-bg-video" class="hero-bg-video" src="port_video.mp4" poster="vash_suit.jpeg" autoplay
+                    muted playsinline preload="auto" aria-hidden="true">
+                </video>
+
+                <!-- Dark cinematic grading layer -->
+                <div class="video-grade-overlay" aria-hidden="true"></div>
+
+                <!-- Deep vignette (edges bleed to black) -->
+                <div class="video-vignette" aria-hidden="true"></div>
+
+                <!-- Gold chromatic shimmer -->
+                <div class="video-gold-cast" aria-hidden="true"></div>
+
+                <!-- Scanline VFX -->
+                <div class="video-scanlines" aria-hidden="true"></div>
+
+                <!-- Horizontal lens flare / streak -->
+                <div class="video-lens-flare" id="hero-lens-flare" aria-hidden="true"></div>
+
+                <!-- Sound Toggle Button -->
+                <button class="video-sound-btn" id="video-sound-btn" aria-label="Toggle video sound">
+                    <span class="sound-icon sound-off" id="sound-icon-off">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <line x1="23" y1="9" x2="17" y2="15" />
+                            <line x1="17" y1="9" x2="23" y2="15" />
+                        </svg>
+                    </span>
+                    <span class="sound-icon sound-on" id="sound-icon-on" style="display:none">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                        </svg>
+                    </span>
+                    <span class="sound-label" id="sound-label">SOUND OFF</span>
+                </button>
+            </div>
+            <div class="hero-container">
+                <!-- Left: Cinematic Copy & Typography -->
+                <div class="hero-left">
+                    <div class="hero-badge-container reveal-fade">
+                        <span class="red-beacon"></span>
+                        <span class="badge-text">DIGITAL STRATEGY <span class="divider-slash">/</span> AI &
+                            FULL-STACK</span>
+                    </div>
+
+                    <h1 class="hero-headline reveal-title">
+                        <span class="name-first">VIVASH</span>
+                        <span class="name-middle">VEL</span>
+                        <span class="name-last">C.S.</span>
+                    </h1>
+
+                    <div class="hero-roles-cycler reveal-fade" style="--delay: 0.2s;">
+                        <span class="role-static">Specialized in</span>
+                        <div class="role-rotator">
+                            <span class="role-item active">Digital Strategist</span>
+                            <span class="role-item">AI & Full-Stack Developer</span>
+                            <span class="role-item">Spring Boot Architect</span>
+                            <span class="role-item">Growth & Performance Marketer</span>
+                        </div>
+                    </div>
+
+                    <p class="hero-manifesto reveal-fade" style="--delay: 0.35s;">
+                        I blend digital strategy, AI, and full-stack development to create experiences that connect
+                        technology, creativity, and measurable impact.
+                    </p>
+
+                    <!-- Cinematic CTAs -->
+                    <div class="hero-cta-group reveal-fade" style="--delay: 0.5s;">
+                        <a href="#projects" class="btn btn-primary-gold magnetic-btn" id="hero-work-btn">
+                            <span class="btn-text">VIEW MY WORK</span>
+                            <div class="btn-icon-wrapper">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <button class="btn btn-secondary-resume magnetic-btn" id="hero-resume-btn"
+                            onclick="openResumeModal()">
+                            <svg class="resume-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span class="btn-text">DOWNLOAD RESUME</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Metrics Bar -->
+                    <div class="hero-metrics-strip reveal-fade" style="--delay: 0.65s;">
+                        <div class="metric-block">
+                            <span class="metric-num">8.0<span class="metric-gold">/10</span></span>
+                            <span class="metric-label">B.Tech CGPA</span>
+                        </div>
+                        <div class="metric-sep"></div>
+                        <div class="metric-block">
+                            <span class="metric-num">2<span class="metric-gold">+</span></span>
+                            <span class="metric-label">Industry Internships</span>
+                        </div>
+                        <div class="metric-sep"></div>
+                        <div class="metric-block">
+                            <span class="metric-num">7<span class="metric-gold">+</span></span>
+                            <span class="metric-label">Verified Certifications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <a href="#about" class="hero-scroll-trigger" aria-label="Scroll to About Me section">
+                <span class="scroll-track">
+                    <span class="scroll-pip"></span>
+                </span>
+                <span class="scroll-caption">SCROLL TO DISCOVER</span>
+            </a>
+
+
+        </section>
+
+
+        <!-- ==================== MARQUEE TICKER ==================== -->
+        <div class="cinematic-ticker-wrap" aria-hidden="true">
+            <div class="ticker-content">
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> DIGITAL STRATEGY</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> GENERATIVE AI & LLMS</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> SPRING BOOT & REST APIS</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> PERFORMANCE SEO & PAID ADS</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> ENTERPRISE MVC ARCHITECTURE</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> MYSQL & JPA PERSISTENCE</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> META ADS & AUDIENCE MAPPING</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> ATS RESUME ANALYTICS</span>
+
+                <!-- Duplicate for seamless looping -->
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> DIGITAL STRATEGY</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> GENERATIVE AI & LLMS</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> SPRING BOOT & REST APIS</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> PERFORMANCE SEO & PAID ADS</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> ENTERPRISE MVC ARCHITECTURE</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> MYSQL & JPA PERSISTENCE</span>
+                <span class="ticker-item"><span class="ticker-dot gold">✦</span> META ADS & AUDIENCE MAPPING</span>
+                <span class="ticker-item"><span class="ticker-dot red">●</span> ATS RESUME ANALYTICS</span>
+            </div>
+        </div>
+
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">01</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">CONVERGENCE</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        ABOUT <span class="gold-gradient-text">ME</span>
+                    </h2>
+                    <p class="section-description">
+                        Where deep computational algorithms meet high-conversion market psychology.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Narrative Column -->
+                    <div class="about-narrative-card glass-panel reveal-on-scroll">
+                        <div class="panel-header-line">
+                            <span class="panel-tag"><span class="gold-dot"></span> PHILOSOPHY & VISION</span>
+                            <span class="panel-id">SEC // 01.A</span>
+                        </div>
+
+                        <h3 class="narrative-lead">
+                            Bridging the divide between <span class="gold-highlight">intelligent software
+                                engineering</span> and <span class="red-highlight">high-impact digital growth</span>.
+                        </h3>
+
+                        <p class="narrative-body">
+                            I am a <strong>B.Tech Artificial Intelligence and Data Science</strong> scholar at
+                            <strong>Kamaraj College of Engineering and Technology, Madurai</strong> (2024–2028,
+                            currently 5th Semester, holding an <strong>8.0 CGPA</strong>).
+                        </p>
+
+                        <p class="narrative-body">
+                            My core expertise sits at the high-leverage intersection of <strong>Digital
+                                Marketing</strong>, <strong>Artificial Intelligence</strong>, and <strong>Full-Stack
+                                Backend Development</strong>. I believe that engineering prowess is only half the
+                            equation—the true value unlocks when systems are engineered for real market demand, search
+                            visibility, and frictionless user conversion.
+                        </p>
+
+                        <div class="quote-cinematic">
+                            <div class="quote-bar"></div>
+                            <blockquote class="quote-content">
+                                "No shortcuts, just disciplined execution. Architecting resilient software while
+                                commanding the digital channels that make it thrive."
+                            </blockquote>
+                        </div>
+
+                        <!-- 4 Animated Pillar Cards -->
+                        <div class="pillar-cards-row">
+                            <div class="pillar-card">
+                                <div class="pillar-top">
+                                    <span class="pillar-idx">01</span>
+                                    <span class="pillar-red-dot"></span>
+                                </div>
+                                <h4>AI & DS</h4>
+                                <p>LLM Prompting, Resume NLP, Predictive Matching</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-top">
+                                    <span class="pillar-idx">02</span>
+                                    <span class="pillar-gold-dot"></span>
+                                </div>
+                                <h4>Full-Stack</h4>
+                                <p>Spring Boot, RESTful APIs, MySQL, JPA/Hibernate</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-top">
+                                    <span class="pillar-idx">03</span>
+                                    <span class="pillar-red-dot"></span>
+                                </div>
+                                <h4>Digital Strategy</h4>
+                                <p>Multi-channel Growth, Funnel Architecture, Analytics</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-top">
+                                    <span class="pillar-idx">04</span>
+                                    <span class="pillar-gold-dot"></span>
+                                </div>
+                                <h4>SEO & Ads</h4>
+                                <p>On-Page Search, Google Ads, Meta Ads Manager</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Executive Portrait & Tech Specs Column -->
+                    <div class="about-spec-column reveal-on-scroll" style="--delay: 0.2s;">
+                        <div class="executive-portrait-box glass-panel">
+                            <div class="exec-img-wrapper">
+                                <img src="vash_suit.jpeg" alt="Vivash Vel C.S. — Executive Vision" class="exec-img"
+                                    loading="lazy">
+                                <div class="exec-overlay-gold"></div>
+                            </div>
+                            <div class="exec-details">
+                                <div class="exec-header">
+                                    <div>
+                                        <h4 class="exec-name">VIVASH VEL C.S.</h4>
+                                        <span class="exec-role">Digital Strategist &bull; AI Engineer</span>
+                                    </div>
+                                    <span class="status-verified-badge">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        VERIFIED
+                                    </span>
+                                </div>
+
+                                <div class="exec-specs-list">
+                                    <div class="spec-row">
+                                        <span class="spec-label">Location</span>
+                                        <span class="spec-val">Madurai, Tamil Nadu, India</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Education</span>
+                                        <span class="spec-val">B.Tech AI & DS (KCET)</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Cumulative GPA</span>
+                                        <span class="spec-val gold-text">8.0 / 10.0</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Industry Internships</span>
+                                        <span class="spec-val">Futura Labs & Osiz Labs</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Focus Disciplines</span>
+                                        <span class="spec-val">GenAI &bull; Spring Boot &bull; Paid Growth</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== EXPERIENCE SECTION ==================== -->
+        <section id="experience" class="section experience-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">02</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">TRACK RECORD</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        WORK <span class="gold-gradient-text">EXPERIENCE</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Proven execution across professional digital marketing agencies and enterprise software labs.
+                    </p>
+                </div>
+
+                <!-- Cinematic Vertical Timeline -->
+                <div class="experience-cinematic-timeline">
+                    <!-- Central Gold Track -->
+                    <div class="timeline-central-spine" aria-hidden="true"></div>
+
+                    <!-- Experience 1: Futura Labs -->
+                    <div class="timeline-entry reveal-on-scroll" style="--delay: 0.1s;">
+                        <div class="timeline-node">
+                            <span class="node-pulse"></span>
+                            <span class="node-core"></span>
+                        </div>
+
+                        <div class="timeline-card glass-panel">
+                            <div class="card-top-bar">
+                                <div class="exp-role-group">
+                                    <span class="exp-track-tag tag-marketing">DIGITAL MARKETING & GROWTH</span>
+                                    <h3 class="exp-title">Digital Marketing Intern</h3>
+                                    <h4 class="exp-company">Futura Labs <span class="company-city">— Calicut,
+                                            Kerala</span></h4>
+                                </div>
+                                <div class="exp-date-badge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span>Aug 2026</span>
+                                </div>
+                            </div>
+
+                            <p class="exp-summary">
+                                Drove organic and paid acquisition funnels, applied AI-powered search optimization
+                                tools, and created high-converting brand campaigns across Google and Meta ad ecosystems.
+                            </p>
+
+                            <div class="exp-highlights-list">
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>SEO & On-Page Optimization:</strong> Implemented data-backed on-page
+                                        enhancements, structural schema, and meta optimization with modern AI SEO
+                                        toolchains.</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Paid Search & Ads:</strong> Set up, optimized, and measured multi-tiered
+                                        ad campaigns across <strong>Google Ads</strong> and <strong>Meta Ads
+                                            Manager</strong> for maximum ROI.</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Keyword & Audience Strategy:</strong> Conducted comprehensive competitive
+                                        keyword intelligence, audience mapping, and conversion funnel analysis.</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Branding & Creatives:</strong> Crafted engaging visual content,
+                                        promotional assets, and marketing creatives using <strong>Canva</strong>.</p>
+                                </div>
+                            </div>
+
+                            <div class="exp-tags-cluster">
+                                <span class="cinematic-tag">SEO</span>
+                                <span class="cinematic-tag">Social Media Marketing</span>
+                                <span class="cinematic-tag">Paid Advertising</span>
+                                <span class="cinematic-tag">Content Strategy</span>
+                                <span class="cinematic-tag">Keyword Research</span>
+                                <span class="cinematic-tag">AI-powered SEO tools</span>
+                                <span class="cinematic-tag">Canva</span>
+                                <span class="cinematic-tag">Google Ads</span>
+                                <span class="cinematic-tag">Meta Ads Manager</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: Osiz Labs -->
+                    <div class="timeline-entry reveal-on-scroll" style="--delay: 0.25s;">
+                        <div class="timeline-node">
+                            <span class="node-pulse red-pulse"></span>
+                            <span class="node-core red-core"></span>
+                        </div>
+
+                        <div class="timeline-card glass-panel">
+                            <div class="card-top-bar">
+                                <div class="exp-role-group">
+                                    <span class="exp-track-tag tag-engineering">BACKEND & FULL-STACK SYSTEMS</span>
+                                    <h3 class="exp-title">Full Stack Development Intern</h3>
+                                    <h4 class="exp-company">Osiz Labs <span class="company-city">— Madurai, Tamil
+                                            Nadu</span></h4>
+                                </div>
+                                <div class="exp-date-badge gold-date">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span>Dec 2025</span>
+                                </div>
+                            </div>
+
+                            <p class="exp-summary">
+                                Engineered production-grade Java full-stack applications with Spring Boot backend,
+                                JPA/Hibernate ORM persistence, and clean MVC layered architecture.
+                            </p>
+
+                            <div class="exp-highlights-list">
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Spring Boot & RESTful APIs:</strong> Designed modular controllers,
+                                        services, and endpoints handling data exchange and authentication pipelines.</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Data Persistence & ORM:</strong> Implemented transactional CRUD
+                                        operations with <strong>MySQL</strong> database and <strong>JPA /
+                                            Hibernate</strong> entity management.</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Frontend-Backend Integration:</strong> Connected interactive frontend
+                                        views with backend services adhering to <strong>MVC</strong> design principles.
+                                    </p>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="bullet-gold">✦</span>
+                                    <p><strong>Version Control & Collaboration:</strong> Maintained version-controlled
+                                        workflows, branch management, and clean code hygiene using <strong>Git</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="exp-tags-cluster">
+                                <span class="cinematic-tag">Spring Boot</span>
+                                <span class="cinematic-tag">REST APIs</span>
+                                <span class="cinematic-tag">MySQL</span>
+                                <span class="cinematic-tag">JPA/Hibernate</span>
+                                <span class="cinematic-tag">CRUD</span>
+                                <span class="cinematic-tag">MVC</span>
+                                <span class="cinematic-tag">Git</span>
+                                <span class="cinematic-tag">Frontend-backend integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== PROJECTS SECTION ==================== -->
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">03</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">FEATURED PRODUCTIONS</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        MY<span class="gold-gradient-text"> PROJECTS</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Architecting intelligent AI workflows and scalable distributed systems.
+                    </p>
+                </div>
+
+                <div class="spatial-projects-grid">
+                    <!-- ================= PROJECT 1: VREZER 3.0 (FLAGSHIP) ================= -->
+                    <div class="spatial-project-card spatial-glass-card reveal-on-scroll" style="--delay: 0.1s;">
+                        <div class="spatial-card-glow gold-glow-mesh" aria-hidden="true"></div>
+                        <div class="spatial-card-content">
+                            <div class="spatial-top-row">
+                                <div class="spatial-badge-group">
+                                    <span class="badge-spatial-flagship">★ FLAGSHIP AI SYSTEM</span>
+                                    <span class="badge-spatial-version">VREZER 3.0</span>
+                                </div>
+                                <div class="spatial-indicator">
+                                    <span class="red-dot-pulsing"></span>
+                                    <span class="spatial-ind-text">ACTIVE ARCHITECTURE</span>
+                                </div>
+                            </div>
+
+                            <h3 class="spatial-proj-title">VREZER 3.0 — AI Resume Analyzer</h3>
+
+                            <div class="spatial-tech-tags">
+                                <span class="tech-tag-spatial tag-highlight">Generative AI</span>
+                                <span class="tech-tag-spatial tag-highlight">Resume Analysis</span>
+                                <span class="tech-tag-spatial tag-highlight">Job Matching</span>
+                                <span class="tech-tag-spatial">Spring Boot</span>
+                                <span class="tech-tag-spatial">REST APIs</span>
+                                <span class="tech-tag-spatial">MySQL</span>
+                            </div>
+
+                            <div class="spatial-proj-description">
+                                <p>
+                                    VREZER 3.0 is a flagship Generative AI-powered intelligent resume analytics platform
+                                    engineered to bridge candidate capabilities with high-precision industry
+                                    requirements. It provides comprehensive parsing and evaluation of candidates' core
+                                    technical competencies, professional strengths, experience depth, and specific
+                                    job-role suitability scoring.
+                                </p>
+                                <p>
+                                    The system leverages advanced semantic job-matching algorithms to perform in-depth
+                                    candidate suitability evaluation, generating personalized feedback and identifying
+                                    critical skill gaps against modern job market standards. Built on a scalable and
+                                    secure Spring Boot backend architecture, VREZER delivers high-throughput RESTful API
+                                    processing with relational data persistence in MySQL.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= PROJECT 2: ONLINE FOOD ORDERING SYSTEM ================= -->
+                    <div class="spatial-project-card spatial-glass-card reveal-on-scroll" style="--delay: 0.25s;">
+                        <div class="spatial-card-glow red-glow-mesh" aria-hidden="true"></div>
+                        <div class="spatial-card-content">
+                            <div class="spatial-top-row">
+                                <div class="spatial-badge-group">
+                                    <span class="badge-spatial-arch">📦 ENTERPRISE PLATFORM</span>
+                                    <span class="badge-spatial-version">FULL STACK MVC</span>
+                                </div>
+                                <div class="spatial-indicator">
+                                    <span class="gold-dot"></span>
+                                    <span class="spatial-ind-text">PRODUCTION SYSTEM</span>
+                                </div>
+                            </div>
+
+                            <h3 class="spatial-proj-title">Online Food Ordering System</h3>
+
+                            <div class="spatial-tech-tags">
+                                <span class="tech-tag-spatial tag-highlight">Spring Boot</span>
+                                <span class="tech-tag-spatial tag-highlight">REST APIs</span>
+                                <span class="tech-tag-spatial">MySQL</span>
+                                <span class="tech-tag-spatial">JPA / Hibernate</span>
+                                <span class="tech-tag-spatial">MVC Architecture</span>
+                                <span class="tech-tag-spatial">Cart & Order Tracking</span>
+                            </div>
+
+                            <div class="spatial-proj-description">
+                                <p>
+                                    A robust full-stack enterprise web application delivering end-to-end digital food
+                                    commerce capabilities with high reliability and scalable architecture. Built with a
+                                    structured Spring Boot backend following clean MVC design patterns, it ensures
+                                    strict separation of concerns across service, controller, and repository layers.
+                                </p>
+                                <p>
+                                    The application features complete user authentication and registration workflows,
+                                    real-time dynamic menu browsing and catalog management, multi-item shopping cart
+                                    state handling, transactional checkout logic, and relational order tracking backed
+                                    by MySQL with JPA/Hibernate ORM persistence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== SKILLS SECTION ==================== -->
+        <section id="skills" class="section skills-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">04</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">CAPABILITY MATRIX</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        TECHNICAL & GROWTH <span class="gold-gradient-text">SKILLS</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        A calibrated blend of modern digital marketing acumen, enterprise engineering, and AI system
+                        design.
+                    </p>
+                </div>
+
+                <!-- 3 Categorized Skill Walls -->
+                <div class="skills-wall-grid">
+                    <!-- Category 1: Digital Strategy -->
+                    <div class="skill-category-card glass-panel reveal-on-scroll" style="--delay: 0.1s;">
+                        <div class="cat-header">
+                            <div class="cat-title-wrap">
+                                <span class="cat-symbol gold-text">◆</span>
+                                <h3 class="cat-name">DIGITAL STRATEGY</h3>
+                            </div>
+                            <span class="cat-pill">GROWTH & ADS</span>
+                        </div>
+                        <p class="cat-desc">Audience acquisition, conversion optimization, and brand performance.</p>
+
+                        <div class="skill-chips-wall">
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">SEO & Search Optimization</span>
+                                <span class="skill-level-badge">Advanced</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Google Ads</span>
+                                <span class="skill-level-badge">Certified</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Meta Ads Manager</span>
+                                <span class="skill-level-badge">Practitioner</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">Social Media Marketing</span>
+                                <span class="skill-level-badge">Strategy</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">Content Strategy</span>
+                                <span class="skill-level-badge">Growth</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Web & Campaign Analytics</span>
+                                <span class="skill-level-badge">Insights</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">Canva Brand Design</span>
+                                <span class="skill-level-badge">Visuals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Development -->
+                    <div class="skill-category-card glass-panel reveal-on-scroll" style="--delay: 0.2s;">
+                        <div class="cat-header">
+                            <div class="cat-title-wrap">
+                                <span class="cat-symbol gold-text">◆</span>
+                                <h3 class="cat-name">DEVELOPMENT</h3>
+                            </div>
+                            <span class="cat-pill">ENGINEERING</span>
+                        </div>
+                        <p class="cat-desc">Enterprise software, backend REST APIs, relational databases, and MVC
+                            design.</p>
+
+                        <div class="skill-chips-wall">
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Java Core & OOP</span>
+                                <span class="skill-level-badge">Certified</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Spring Boot</span>
+                                <span class="skill-level-badge">Core Backend</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">REST APIs</span>
+                                <span class="skill-level-badge">Architecture</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">MySQL Database</span>
+                                <span class="skill-level-badge">Relational</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">JPA / Hibernate</span>
+                                <span class="skill-level-badge">ORM</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Full-Stack Development</span>
+                                <span class="skill-level-badge">End-to-End</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">MVC Architecture</span>
+                                <span class="skill-level-badge">Clean Code</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">CRUD Workflows & Git</span>
+                                <span class="skill-level-badge">Versioned</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: AI -->
+                    <div class="skill-category-card glass-panel reveal-on-scroll" style="--delay: 0.3s;">
+                        <div class="cat-header">
+                            <div class="cat-title-wrap">
+                                <span class="cat-symbol gold-text">◆</span>
+                                <h3 class="cat-name">ARTIFICIAL INTELLIGENCE</h3>
+                            </div>
+                            <span class="cat-pill">INTELLIGENCE</span>
+                        </div>
+                        <p class="cat-desc">Generative AI systems, natural language parsing, and intelligent automation.
+                        </p>
+
+                        <div class="skill-chips-wall">
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">Generative AI</span>
+                                <span class="skill-level-badge">LLM Workflows</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">AI-powered Applications</span>
+                                <span class="skill-level-badge">Integrated</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">AI Resume Analysis</span>
+                                <span class="skill-level-badge">NLP Match</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">AI-assisted Development</span>
+                                <span class="skill-level-badge">High-Speed</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot red-dot"></span>
+                                <span class="skill-text">Prompt Engineering</span>
+                                <span class="skill-level-badge">Precision</span>
+                            </div>
+                            <div class="skill-pill-item">
+                                <span class="skill-dot gold-dot"></span>
+                                <span class="skill-text">Data Science & ML Basics</span>
+                                <span class="skill-level-badge">B.Tech Degree</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== CERTIFICATIONS SECTION ==================== -->
+        <section id="certifications" class="section certs-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">05</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">VERIFIED CREDENTIALS</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        PROFESSIONAL <span class="gold-gradient-text">CERTIFICATIONS</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Industry-authorized validations across enterprise software development, digital advertising, and
+                        creative branding.
+                    </p>
+                </div>
+
+                <!-- Premium Horizontal Cards -->
+                <div class="certs-horizontal-grid">
+                    <!-- Cert 1: Java Foundation -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.05s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">INFOSYS SPRINGBOARD</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Java Foundation</h4>
+                        <p class="cert-details">Core object-oriented programming, exception management, collections &
+                            algorithmic foundations.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Software Engineering</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: Digital Marketing -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.1s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">INFOSYS SPRINGBOARD</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Digital Marketing</h4>
+                        <p class="cert-details">Search engine optimization fundamentals, web advertising strategies, and
+                            content distribution.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Growth Marketing</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: Social Media Marketing -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.15s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">LEARNTUBE</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Social Media Marketing</h4>
+                        <p class="cert-details">Audience acquisition strategies, platform algorithms, engagement
+                            metrics, and paid campaign planning.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Social Advertising</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4: Google Ads for Beginners -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.2s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">COURSERA</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Google Ads for Beginners</h4>
+                        <p class="cert-details">Paid search campaigns, keyword bidding models, conversion measurement,
+                            and quality score optimization.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Search Engine Marketing</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 5: Business Branding Using Canva -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.25s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">COURSERA</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Business Branding Using Canva</h4>
+                        <p class="cert-details">Corporate visual identity design, consistent brand guidelines, color
+                            palettes, and commercial assets.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Brand Identity</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 6: Presentations in Canva -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.3s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">COURSERA</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">Presentations in Canva</h4>
+                        <p class="cert-details">High-impact visual storytelling, pitch deck design, data visualization,
+                            and dynamic presentation layouts.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Executive Storytelling</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 7: PicsArt for Social Media Marketing -->
+                    <div class="cert-glass-card glass-panel reveal-on-scroll" style="--delay: 0.35s;">
+                        <div class="cert-top">
+                            <span class="cert-issuer">COURSERA</span>
+                            <span class="cert-red-badge">VERIFIED</span>
+                        </div>
+                        <h4 class="cert-name">PicsArt for Social Media Marketing</h4>
+                        <p class="cert-details">Mobile-first creative editing, social ad layouts, graphic composition,
+                            and promotional visual media.</p>
+                        <div class="cert-footer-line">
+                            <span class="cert-domain">Visual Media</span>
+                            <span class="cert-check-gold">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== EDUCATION SECTION ==================== -->
+        <section id="education" class="section education-section">
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="section-header-cinematic reveal-on-scroll">
+                    <div class="section-badge">
+                        <span class="badge-num">06</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">ACADEMIC FOUNDATION</span>
+                    </div>
+                    <h2 class="section-title-large">
+                        FORMAL <span class="gold-gradient-text">EDUCATION</span>
+                    </h2>
+                </div>
+
+                <div class="education-grid">
+                    <!-- Primary Degree Card -->
+                    <div class="edu-featured-card glass-panel reveal-on-scroll">
+                        <div class="edu-card-backdrop" aria-hidden="true"></div>
+                        <div class="edu-card-content">
+                            <div class="edu-status-badge">
+                                <span class="red-dot-pulsing"></span>
+                                <span>2024 – 2028 (IN PROGRESS &bull; 5TH SEMESTER)</span>
+                            </div>
+
+                            <h3 class="edu-degree-title">B.Tech Artificial Intelligence & Data Science</h3>
+                            <h4 class="edu-college-name">Kamaraj College of Engineering and Technology, Madurai</h4>
+
+                            <!-- Gold CGPA Highlight Badge -->
+                            <div class="cgpa-gold-showcase">
+                                <div class="cgpa-box">
+                                    <span class="cgpa-label">ACADEMIC CGPA</span>
+                                    <div class="cgpa-score">
+                                        <span class="cgpa-big">8.0</span>
+                                        <span class="cgpa-base">/ 10.0</span>
+                                    </div>
+                                </div>
+                                <div class="cgpa-desc">
+                                    Consistently strong academic performance focused on Artificial Intelligence
+                                    algorithms, database systems, backend programming, and data structures.
+                                </div>
+                            </div>
+
+                            <div class="edu-course-tags">
+                                <span class="cinematic-tag tag-gold">Artificial Intelligence</span>
+                                <span class="cinematic-tag">Data Science</span>
+                                <span class="cinematic-tag">Machine Learning</span>
+                                <span class="cinematic-tag">Object-Oriented Programming</span>
+                                <span class="cinematic-tag">Database Management Systems</span>
+                                <span class="cinematic-tag">Web Technologies</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Schooling Card -->
+                    <div class="edu-secondary-card glass-panel reveal-on-scroll" style="--delay: 0.2s;">
+                        <div class="edu-status-badge badge-neutral">
+                            <span>2010 – 2023 (COMPLETED)</span>
+                        </div>
+
+                        <h4 class="edu-school-degree">Higher Secondary & Secondary Education</h4>
+                        <h5 class="edu-school-name">KVS Matriculation Higher Secondary School, Virudhunagar</h5>
+
+                        <div class="schooling-metrics-row">
+                            <div class="school-metric">
+                                <span class="sm-label">CLASS 12 (HSC)</span>
+                                <span class="sm-val gold-text">76.4%</span>
+                            </div>
+                            <div class="school-metric">
+                                <span class="sm-label">CLASS 10 (SSLC)</span>
+                                <span class="sm-val gold-text">74.6%</span>
+                            </div>
+                        </div>
+
+                        <p class="school-desc">
+                            Built strong foundational mathematics, logical problem solving, computer applications, and
+                            discipline across 13 formative schooling years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== DRAMATIC CONTACT SECTION ==================== -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-atmospheric-glow" aria-hidden="true"></div>
+
+            <div class="section-container">
+                <!-- Large Dramatic Headings -->
+                <div class="contact-headline-box reveal-on-scroll">
+                    <div class="section-badge badge-center">
+                        <span class="badge-num">07</span>
+                        <span class="badge-line"></span>
+                        <span class="badge-name">INITIATE COLLABORATION</span>
+                    </div>
+
+                    <h2 class="contact-hero-title">
+                        LET’S BUILD SOMETHING <br>
+                        <span class="gold-gradient-text">IMPACTFUL.</span>
+                    </h2>
+
+                    <p class="contact-subhead">
+                        Have an idea, opportunity, or collaboration in mind? Let's connect and create software and
+                        growth strategies that stand apart.
+                    </p>
+
+                    <!-- Dual CTAs -->
+                    <div class="contact-hero-buttons">
+                        <a href="mailto:vivashvel2019@gmail.com" class="btn btn-primary-gold btn-lg magnetic-btn">
+                            <span class="btn-text">LET’S CONNECT</span>
+                            <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+                                <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.75"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+
+                        <a href="https://github.com/VashCosta" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary-resume btn-lg magnetic-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                </path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg>
+                            <span class="btn-text">VIEW GITHUB</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Grid: Direct Cards & Direct Message Form -->
+                <div class="contact-interactive-grid">
+                    <!-- Left: Direct Channels -->
+                    <div class="direct-channels-column reveal-on-scroll">
+                        <h3 class="channels-title">DIRECT CHANNELS</h3>
+
+                        <a href="mailto:vivashvel2019@gmail.com" class="channel-card glass-panel magnetic-card">
+                            <div class="channel-icon-box gold-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </svg>
+                            </div>
+                            <div class="channel-info">
+                                <span class="channel-type">PRIMARY EMAIL</span>
+                                <span class="channel-value">vivashvel2019@gmail.com</span>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <a href="tel:+918610552795" class="channel-card glass-panel magnetic-card">
+                            <div class="channel-icon-box red-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="channel-info">
+                                <span class="channel-type">PHONE / WHATSAPP</span>
+                                <span class="channel-value">+91 8610552795</span>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/vivashvel" target="_blank" rel="noopener noreferrer"
+                            class="channel-card glass-panel magnetic-card">
+                            <div class="channel-icon-box gold-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect width="4" height="12" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </div>
+                            <div class="channel-info">
+                                <span class="channel-type">LINKEDIN NETWORK</span>
+                                <span class="channel-value">linkedin.com/in/vivashvel</span>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <a href="https://github.com/VashCosta" target="_blank" rel="noopener noreferrer"
+                            class="channel-card glass-panel magnetic-card">
+                            <div class="channel-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                    </path>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                </svg>
+                            </div>
+                            <div class="channel-info">
+                                <span class="channel-type">GITHUB CODEBASE</span>
+                                <span class="channel-value">github.com/VashCosta</span>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Right: Quick Direct Dispatch Form -->
+                    <div class="contact-form-column glass-panel reveal-on-scroll" style="--delay: 0.2s;">
+                        <div class="form-header-line">
+                            <span class="form-tag"><span class="red-dot"></span> DIRECT INQUIRY DISPATCH</span>
+                            <span class="form-sec-id">MADURAI // IN</span>
+                        </div>
+
+                        <form id="cinematic-contact-form" class="cinematic-form">
+                            <div class="form-row-2">
+                                <div class="form-field">
+                                    <label for="user-name">YOUR NAME *</label>
+                                    <input type="text" id="user-name" name="name" placeholder="Alexander Wright"
+                                        required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="user-email">EMAIL ADDRESS *</label>
+                                    <input type="email" id="user-email" name="email" placeholder="alexander@company.com"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="user-subject">ENGAGEMENT TOPIC *</label>
+                                <input type="text" id="user-subject" name="subject"
+                                    placeholder="Full-Stack Engineering / AI Role / Growth Strategy" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="user-message">MESSAGE BRIEF *</label>
+                                <textarea id="user-message" name="message" rows="4"
+                                    placeholder="Hello Vivash, I came across your portfolio and wanted to discuss..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary-gold btn-block magnetic-btn" id="submit-btn">
+                                <span class="btn-text">DISPATCH INQUIRY</span>
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+
+                            <div id="form-feedback" class="form-feedback-message" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ==================== LUXURY FOOTER ==================== -->
+    <footer class="cinematic-footer">
+        <div class="footer-container">
+            <div class="footer-main-row">
+                <div class="footer-brand-col">
+                    <a href="#hero" class="footer-logo">
+                        <span class="brand-v">V</span><span class="brand-rest">IVASH VEL C.S.</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Digital Strategist &bull; AI & Full-Stack Developer.<br>
+                        Architecting intelligent systems with quiet luxury and high-impact performance.
+                    </p>
+                </div>
+
+                <div class="footer-nav-col">
+                    <span class="footer-col-title">NAVIGATION</span>
+                    <div class="footer-links-grid">
+                        <a href="#hero">00. Home</a>
+                        <a href="#about">01. About</a>
+                        <a href="#experience">02. Experience</a>
+                        <a href="#projects">03. Projects</a>
+                        <a href="#skills">04. Skills</a>
+                        <a href="#education">05. Credentials</a>
+                        <a href="#contact">06. Contact</a>
+                    </div>
+                </div>
+
+                <div class="footer-actions-col">
+                    <span class="footer-col-title">DOCUMENTS</span>
+                    <button class="footer-resume-trigger" onclick="openResumeModal()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>ATS Resume Preview</span>
+                    </button>
+                    <a href="mailto:vivashvel2019@gmail.com" class="footer-mail-link">vivashvel2019@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p class="footer-copy">&copy; 2026 VIVASH VEL C.S. ALL RIGHTS RESERVED. CRAFTED WITH OBSIDIAN & GOLD.
+                </p>
+                <a href="#hero" class="footer-back-top magnetic-btn">
+                    <span>BACK TO TOP</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 11V1M6 1L1 6M6 1L11 6" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==================== RESUME MODAL ==================== -->
+    <div class="resume-modal-backdrop" id="resume-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="resume-modal-dialog glass-panel">
+            <div class="modal-header-bar">
+                <div class="modal-title-group">
+                    <span class="modal-tag"><span class="gold-dot"></span> ATS-VERIFIED DOCUMENT</span>
+                    <h3 class="modal-heading">VIVASH VEL C.S. — RESUME</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeResumeModal()" aria-label="Close Resume Modal">✕</button>
+            </div>
+
+            <div class="resume-modal-body">
+                <div class="resume-sheet">
+                    <div class="resume-header">
+                        <h2>VIVASH VEL C.S.</h2>
+                        <p class="resume-title-sub">Digital Strategist | AI & Full-Stack Developer</p>
+                        <div class="resume-contact-inline">
+                            <span>Madurai, TN</span> &bull;
+                            <span>vivashvel2019@gmail.com</span> &bull;
+                            <span>+91 8610552795</span> &bull;
+                            <span>linkedin.com/in/vivashvel</span> &bull;
+                            <span>github.com/VashCosta</span>
+                        </div>
+                    </div>
+
+                    <hr class="resume-gold-line">
+
+                    <div class="resume-section-item">
+                        <h4>EXECUTIVE SUMMARY</h4>
+                        <p>B.Tech Artificial Intelligence & Data Science student (CGPA: 8.0/10) with practical industry
+                            internship experience across Full-Stack Software Engineering (Spring Boot, REST APIs, MySQL,
+                            JPA/Hibernate) and Growth Digital Marketing (SEO, Google Ads, Meta Ads Manager, Content
+                            Strategy).</p>
+                    </div>
+
+                    <div class="resume-section-item">
+                        <h4>WORK EXPERIENCE</h4>
+                        <div class="resume-job">
+                            <div class="job-head">
+                                <strong>Digital Marketing Intern</strong> — Futura Labs, Calicut
+                                <span class="job-date">Aug 2026</span>
+                            </div>
+                            <ul>
+                                <li>Implemented on-page SEO strategies with AI SEO tools, increasing organic search
+                                    visibility.</li>
+                                <li>Managed multi-tier Google Ads and Meta Ads campaigns with audience testing.</li>
+                                <li>Conducted keyword research and produced brand visual creatives using Canva.</li>
+                            </ul>
+                        </div>
+                        <div class="resume-job">
+                            <div class="job-head">
+                                <strong>Full Stack Development Intern</strong> — Osiz Labs, Madurai
+                                <span class="job-date">Dec 2025</span>
+                            </div>
+                            <ul>
+                                <li>Engineered RESTful web services in Spring Boot with MySQL relational schemas.</li>
+                                <li>Implemented JPA/Hibernate entity mappings and transactional CRUD logic following
+                                    MVC.</li>
+                                <li>Collaborated on version control, branching, and feature integration via Git.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-section-item">
+                        <h4>NOTABLE PROJECTS</h4>
+                        <p><strong>VREZER 3.0 (AI Resume Analyzer):</strong> GenAI-powered resume evaluation engine with
+                            Spring Boot backend, REST APIs, and ATS suitability scoring.</p>
+                        <p><strong>Online Food Ordering System:</strong> Full-stack Java Spring Boot MVC application
+                            with database persistence, shopping cart state, and order tracking.</p>
+                    </div>
+
+                    <div class="resume-section-item">
+                        <h4>EDUCATION</h4>
+                        <p><strong>B.Tech in Artificial Intelligence & Data Science</strong> (2024–2028) — Kamaraj
+                            College of Engineering & Technology, Madurai &bull; <strong>CGPA: 8.0 / 10</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-bar">
+                <button class="btn btn-secondary-resume" onclick="closeResumeModal()">CLOSE PREVIEW</button>
+                <a href="mailto:vivashvel2019@gmail.com?subject=Resume%20Inquiry%20-%20Vivash%20Vel%20C.S."
+                    class="btn btn-primary-gold">
+                    <span>REQUEST OFFICIAL PDF COPY</span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.75"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
