@@ -163,13 +163,13 @@ function initGsapScrollEffects() {
         gsap.from(header.children, {
             scrollTrigger: {
                 trigger: header,
-                start: 'top 85%',
-                toggleActions: 'play reverse play reverse'
+                start: 'top 88%',
+                toggleActions: 'play none none reverse'
             },
-            y: 40,
+            y: 35,
             opacity: 0,
-            stagger: 0.12,
-            duration: 0.85,
+            stagger: 0.1,
+            duration: 0.8,
             ease: 'power3.out'
         });
     });
@@ -179,14 +179,14 @@ function initGsapScrollEffects() {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: 'top 88%',
-                toggleActions: 'play reverse play reverse'
+                start: 'top 90%',
+                toggleActions: 'play none none reverse'
             },
-            y: 60,
+            y: 50,
             opacity: 0,
-            scale: 0.96,
-            duration: 0.9,
-            delay: (i % 2) * 0.12,
+            scale: 0.97,
+            duration: 0.85,
+            delay: (i % 2) * 0.1,
             ease: 'power3.out'
         });
     });
@@ -196,12 +196,12 @@ function initGsapScrollEffects() {
         gsap.from(entry, {
             scrollTrigger: {
                 trigger: entry,
-                start: 'top 85%',
-                toggleActions: 'play reverse play reverse'
+                start: 'top 88%',
+                toggleActions: 'play none none reverse'
             },
-            x: -35,
+            x: -30,
             opacity: 0,
-            duration: 0.85,
+            duration: 0.8,
             ease: 'power3.out'
         });
     });
@@ -212,24 +212,24 @@ function initGsapScrollEffects() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: block,
-                start: 'top 86%',
-                toggleActions: 'play reverse play reverse'
+                start: 'top 88%',
+                toggleActions: 'play none none reverse'
             }
         });
 
         tl.from(block, {
-            y: 35,
+            y: 30,
             opacity: 0,
-            duration: 0.75,
+            duration: 0.7,
             ease: 'power3.out'
         })
         .from(pills, {
-            scale: 0.75,
+            scale: 0.8,
             opacity: 0,
-            stagger: 0.035,
-            duration: 0.45,
-            ease: 'back.out(1.5)'
-        }, '-=0.35');
+            stagger: 0.03,
+            duration: 0.4,
+            ease: 'back.out(1.4)'
+        }, '-=0.3');
     });
 
     // ── Credentials / Education / Pillar Cards ──
@@ -237,15 +237,20 @@ function initGsapScrollEffects() {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: 'top 88%',
-                toggleActions: 'play reverse play reverse'
+                start: 'top 90%',
+                toggleActions: 'play none none reverse'
             },
-            y: 38,
+            y: 35,
             opacity: 0,
             scale: 0.97,
-            duration: 0.8,
+            duration: 0.75,
             ease: 'power3.out'
         });
+    });
+
+    // Refresh ScrollTrigger after assets load
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
     });
 }
 
