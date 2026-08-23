@@ -1,88 +1,280 @@
 /* ==========================================================================
-   VIVASH VEL C.S. — CINEMATIC 240fps SCROLL IN/OUT ENGINE
-   - Hardware-accelerated GPU animations
-   - Dynamic scroll in & out effects across all sections
-   - Hero scroll-out parallax with smooth opacity and scale transition
-   - Accurate framing for both video and vash_suit.jpeg below header
-   - Auto audio unlock on interaction / toggle
+   VIVASH VEL C.S. — GSAP LUXURY CINEMATIC ANIMATION ENGINE v5.0
+   - Powered by GSAP 3.12 & ScrollTrigger
+   - Orchestrated Hero Entry & Scroll-Scrub Parallax Exit
+   - Bi-directional 3D Spatial Section Warp-Ins & Staggered Reveals
+   - Spring-Physics Magnetic Buttons & Interactive Glass Depth
+   - Seamless Video -> Executive Portrait Crossfade (vash_suit.jpeg)
    ========================================================================== */
+
+// Register GSAP plugins
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 /* ------------------------------------------------------------------
    ENTRY POINT
    ------------------------------------------------------------------ */
 document.addEventListener('DOMContentLoaded', () => {
-    initScrollEngine();
+    initScrollProgressBar();
     initVideoSystem();
-    initHeroAnimations();
+    initGsapHeroEntry();
+    initGsapScrollEffects();
+    initGsapMagnetic();
+    initHeroRolesRotator();
     initScrollspyAndNav();
-    initScrollReveals();
-    initMagneticElements();
     initContactForm();
     initModalEvents();
 });
 
 /* ------------------------------------------------------------------
-   1. Ultra-Smooth Scroll Engine with Hero Scroll-Out Effects
+   1. Scroll Progress Bar
    ------------------------------------------------------------------ */
-function initScrollEngine() {
-    const prog           = document.getElementById('scroll-progress');
-    const nav            = document.getElementById('main-nav');
-    const hero           = document.getElementById('hero');
-    const heroLeft       = document.querySelector('.hero-left');
-    const heroVideoStage = document.getElementById('hero-video-stage');
+function initScrollProgressBar() {
+    const prog = document.getElementById('scroll-progress');
+    const nav  = document.getElementById('main-nav');
 
-    let ticking = false;
-
-    function updateScroll() {
+    window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const docH = document.documentElement.scrollHeight - window.innerHeight;
 
-        // Update progress bar
         if (prog && docH > 0) {
             prog.style.width = Math.min(100, (scrollY / docH) * 100) + '%';
         }
-
-        // Nav scrolled state
         if (nav) {
             nav.classList.toggle('scrolled', scrollY > 20);
         }
-
-        // Hero dynamic scroll-out transition
-        if (hero) {
-            const heroH = hero.offsetHeight;
-            hero.classList.toggle('scrolled-past', scrollY > heroH * 0.4);
-
-            if (scrollY <= heroH) {
-                const ratio = scrollY / heroH;
-                if (heroLeft) {
-                    heroLeft.style.transform = `translate3d(0, -${(scrollY * 0.22).toFixed(1)}px, 0)`;
-                    heroLeft.style.opacity = Math.max(0, 1 - ratio * 1.6).toFixed(2);
-                }
-                if (heroVideoStage) {
-                    heroVideoStage.style.transform = `translate3d(0, ${(scrollY * 0.12).toFixed(1)}px, 0) scale(${(1 - ratio * 0.04).toFixed(3)})`;
-                    heroVideoStage.style.filter = `brightness(${(0.72 - ratio * 0.45).toFixed(2)}) contrast(${(1.1 - ratio * 0.15).toFixed(2)})`;
-                }
-            } else {
-                if (heroLeft && heroLeft.style.opacity !== '0') heroLeft.style.opacity = '0';
-            }
-        }
-
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateScroll);
-            ticking = true;
-        }
     }, { passive: true });
-
-    // Initial pass
-    updateScroll();
 }
 
 /* ------------------------------------------------------------------
-   2. Video & Audio System (Framed strictly below header)
+   2. GSAP Hero Entrance Sequence (Cinematic Orchestra)
+   ------------------------------------------------------------------ */
+function initGsapHeroEntry() {
+    if (typeof gsap === 'undefined') return;
+
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.15 });
+
+    // Top Navigation bar entrance
+    tl.from('#main-nav', {
+        y: -40,
+        opacity: 0,
+        duration: 1.0,
+        ease: 'power3.out'
+    }, 0);
+
+    // Hero background video / image scale-in
+    tl.from('.hero-video-stage', {
+        scale: 1.06,
+        opacity: 0,
+        duration: 1.8,
+        ease: 'power2.out'
+    }, 0.1);
+
+    // Hero Badge
+    tl.from('.hero-badge-container', {
+        y: 25,
+        opacity: 0,
+        scale: 0.92,
+        duration: 0.75
+    }, 0.3);
+
+    // Headline: VIVASH VEL C.S. staggered word reveal
+    tl.from('.hero-headline .name-first, .hero-headline .name-middle, .hero-headline .name-last', {
+        y: 45,
+        opacity: 0,
+        rotationX: -12,
+        stagger: 0.1,
+        duration: 1.0,
+        ease: 'power4.out'
+    }, 0.45);
+
+    // Roles Rotator
+    tl.from('.hero-roles-cycler', {
+        y: 25,
+        opacity: 0,
+        duration: 0.8
+    }, 0.7);
+
+    // Manifesto description
+    tl.from('.hero-manifesto', {
+        y: 20,
+        opacity: 0,
+        duration: 0.8
+    }, 0.85);
+
+    // CTA Button Group
+    tl.from('.hero-cta-group .btn', {
+        y: 28,
+        opacity: 0,
+        scale: 0.94,
+        stagger: 0.12,
+        duration: 0.85,
+        ease: 'back.out(1.3)'
+    }, 1.0);
+
+    // Metrics Bar
+    tl.from('.hero-metrics-strip .metric-block, .hero-metrics-strip .metric-sep', {
+        y: 20,
+        opacity: 0,
+        stagger: 0.08,
+        duration: 0.75
+    }, 1.15);
+
+    // Sound toggle button
+    tl.from('#video-sound-btn', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'back.out(1.5)'
+    }, 1.25);
+}
+
+/* ------------------------------------------------------------------
+   3. GSAP ScrollTrigger Effects & Parallax (Bi-directional Luxury)
+   ------------------------------------------------------------------ */
+function initGsapScrollEffects() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    // ── Hero Exit Scrub Parallax ──
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2
+        }
+    })
+    .to('.hero-left', {
+        y: -110,
+        opacity: 0,
+        scale: 0.95,
+        ease: 'none'
+    }, 0)
+    .to('.hero-video-stage', {
+        y: 70,
+        scale: 0.98,
+        filter: 'brightness(0.20)',
+        ease: 'none'
+    }, 0);
+
+    // ── Section Headers Cinematic Reveal ──
+    gsap.utils.toArray('.section-header').forEach(header => {
+        gsap.from(header.children, {
+            scrollTrigger: {
+                trigger: header,
+                start: 'top 85%',
+                toggleActions: 'play reverse play reverse'
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.12,
+            duration: 0.85,
+            ease: 'power3.out'
+        });
+    });
+
+    // ── Spatial Project Cards (3D Slide-in & Elevation) ──
+    gsap.utils.toArray('.spatial-project-card').forEach((card, i) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play reverse play reverse'
+            },
+            y: 60,
+            opacity: 0,
+            scale: 0.96,
+            duration: 0.9,
+            delay: (i % 2) * 0.12,
+            ease: 'power3.out'
+        });
+    });
+
+    // ── Experience Timeline Entries ──
+    gsap.utils.toArray('.timeline-entry').forEach(entry => {
+        gsap.from(entry, {
+            scrollTrigger: {
+                trigger: entry,
+                start: 'top 85%',
+                toggleActions: 'play reverse play reverse'
+            },
+            x: -35,
+            opacity: 0,
+            duration: 0.85,
+            ease: 'power3.out'
+        });
+    });
+
+    // ── Skills Category Blocks & Pills Stagger ──
+    gsap.utils.toArray('.skill-category-block').forEach(block => {
+        const pills = block.querySelectorAll('.skill-pill-item');
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: block,
+                start: 'top 86%',
+                toggleActions: 'play reverse play reverse'
+            }
+        });
+
+        tl.from(block, {
+            y: 35,
+            opacity: 0,
+            duration: 0.75,
+            ease: 'power3.out'
+        })
+        .from(pills, {
+            scale: 0.75,
+            opacity: 0,
+            stagger: 0.035,
+            duration: 0.45,
+            ease: 'back.out(1.5)'
+        }, '-=0.35');
+    });
+
+    // ── Credentials / Education / Pillar Cards ──
+    gsap.utils.toArray('.cert-card, .pillar-card, .edu-featured-card, .edu-card, .contact-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play reverse play reverse'
+            },
+            y: 38,
+            opacity: 0,
+            scale: 0.97,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+    });
+}
+
+/* ------------------------------------------------------------------
+   4. Physics-Driven Magnetic Elements (GSAP quickTo)
+   ------------------------------------------------------------------ */
+function initGsapMagnetic() {
+    if (window.matchMedia('(pointer: coarse)').matches || typeof gsap === 'undefined') return;
+
+    document.querySelectorAll('.magnetic-btn, .nav-cta-btn, .social-link-btn').forEach(btn => {
+        const xTo = gsap.quickTo(btn, 'x', { duration: 0.35, ease: 'power3.out' });
+        const yTo = gsap.quickTo(btn, 'y', { duration: 0.35, ease: 'power3.out' });
+
+        btn.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = btn.getBoundingClientRect();
+            const x = (e.clientX - (left + width / 2)) * 0.35;
+            const y = (e.clientY - (top + height / 2)) * 0.35;
+            xTo(x);
+            yTo(y);
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1.2, 0.4)' });
+        });
+    });
+}
+
+/* ------------------------------------------------------------------
+   5. Video & Audio System (Framed strictly below header)
    ------------------------------------------------------------------ */
 function initVideoSystem() {
     const video    = document.getElementById('hero-bg-video');
@@ -90,7 +282,6 @@ function initVideoSystem() {
     const iconOff  = document.getElementById('sound-icon-off');
     const iconOn   = document.getElementById('sound-icon-on');
     const label    = document.getElementById('sound-label');
-    const stage    = document.getElementById('hero-video-stage');
 
     if (!video) return;
 
@@ -103,7 +294,6 @@ function initVideoSystem() {
             _enableSound(video, iconOff, iconOn, label, soundBtn);
             sessionStorage.setItem('vivash_sound_on', '1');
         }).catch(() => {
-            // Autoplay policy fallback: play muted
             video.muted = true;
             video.play().catch(() => {});
             _disableSound(video, iconOff, iconOn, label, soundBtn);
@@ -170,15 +360,9 @@ function _disableSound(video, iconOff, iconOn, label, btn) {
 }
 
 /* ------------------------------------------------------------------
-   3. Hero Roles Rotator
+   6. Hero Roles Rotator
    ------------------------------------------------------------------ */
-function initHeroAnimations() {
-    setTimeout(() => {
-        document.querySelectorAll('.hero-section .reveal-title, .hero-section .reveal-fade').forEach(el => {
-            el.classList.add('is-visible');
-        });
-    }, 150);
-
+function initHeroRolesRotator() {
     const roles = document.querySelectorAll('.role-rotator .role-item');
     if (roles.length > 0) {
         let i = 0;
@@ -191,7 +375,7 @@ function initHeroAnimations() {
 }
 
 /* ------------------------------------------------------------------
-   4. Scrollspy & Mobile Navigation
+   7. Scrollspy & Mobile Navigation
    ------------------------------------------------------------------ */
 function initScrollspyAndNav() {
     const navLinks = document.querySelectorAll('.nav-item');
@@ -223,51 +407,7 @@ function initScrollspyAndNav() {
 }
 
 /* ------------------------------------------------------------------
-   5. Dynamic Scroll In & Out Effects
-   ------------------------------------------------------------------ */
-function initScrollReveals() {
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('is-visible');
-            } else {
-                // When scrolling out of view, remove is-visible for dynamic scroll in/out effects!
-                e.target.classList.remove('is-visible');
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-    const targets = document.querySelectorAll(
-        '.reveal-on-scroll, .reveal-fade, .timeline-entry, .spatial-project-card, ' +
-        '.skill-category-block, .cert-card, .pillar-card, .edu-featured-card, .edu-card, ' +
-        '.contact-card, .section-header, .about-intro-block'
-    );
-
-    targets.forEach(el => obs.observe(el));
-}
-
-/* ------------------------------------------------------------------
-   6. Magnetic Buttons (Hardware-accelerated)
-   ------------------------------------------------------------------ */
-function initMagneticElements() {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    document.querySelectorAll('.magnetic-btn').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const r = btn.getBoundingClientRect();
-            const x = (e.clientX - (r.left + r.width  / 2)) * 0.15;
-            const y = (e.clientY - (r.top  + r.height / 2)) * 0.15;
-            btn.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
-        }, { passive: true });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate3d(0,0,0)';
-        });
-    });
-}
-
-/* ------------------------------------------------------------------
-   7. Contact Form
+   8. Contact Form
    ------------------------------------------------------------------ */
 function initContactForm() {
     const form     = document.getElementById('cinematic-contact-form');
@@ -305,7 +445,7 @@ function initContactForm() {
 }
 
 /* ------------------------------------------------------------------
-   8. Resume Modal
+   9. Resume Modal
    ------------------------------------------------------------------ */
 window.openResumeModal = () => {
     const m = document.getElementById('resume-modal');

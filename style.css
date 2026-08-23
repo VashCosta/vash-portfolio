@@ -2976,11 +2976,8 @@ ul {
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   A. Dynamic Scroll In & Out Effects (GPU Accelerated)
+   A. GSAP & GPU-Accelerated Spatial Polish
    -------------------------------------------------------------------------- */
-
-/* Base state — all elements animate in on viewport entry and out on exit */
-.reveal-on-scroll,
 .spatial-project-card,
 .skill-category-block,
 .cert-card,
@@ -2991,44 +2988,7 @@ ul {
 .contact-card,
 .section-header,
 .about-intro-block {
-    opacity: 0;
-    transform: translateY(32px) scale(0.985);
-    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
-}
-
-.reveal-on-scroll.is-visible,
-.spatial-project-card.is-visible,
-.skill-category-block.is-visible,
-.cert-card.is-visible,
-.pillar-card.is-visible,
-.timeline-entry.is-visible,
-.edu-featured-card.is-visible,
-.edu-card.is-visible,
-.contact-card.is-visible,
-.section-header.is-visible,
-.about-intro-block.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* Staggered delays */
-.reveal-on-scroll:nth-child(1), .spatial-project-card:nth-child(1), .skill-category-block:nth-child(1), .cert-card:nth-child(1) { transition-delay: 0s; }
-.reveal-on-scroll:nth-child(2), .spatial-project-card:nth-child(2), .skill-category-block:nth-child(2), .cert-card:nth-child(2) { transition-delay: 0.08s; }
-.reveal-on-scroll:nth-child(3), .spatial-project-card:nth-child(3), .skill-category-block:nth-child(3), .cert-card:nth-child(3) { transition-delay: 0.16s; }
-.reveal-on-scroll:nth-child(4), .spatial-project-card:nth-child(4), .skill-category-block:nth-child(4), .cert-card:nth-child(4) { transition-delay: 0.24s; }
-
-/* Hero Reveal Fade */
-.reveal-fade {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.75s var(--ease-spatial) var(--delay, 0s),
-                transform 0.75s var(--ease-spatial) var(--delay, 0s);
-}
-
-.reveal-fade.is-visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Hero Reveal Title (splits name in from bottom) */
