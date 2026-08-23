@@ -136,28 +136,6 @@ function initGsapHeroEntry() {
 function initGsapScrollEffects() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    // ── Hero Exit Scrub Parallax ──
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '#hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.2
-        }
-    })
-    .to('.hero-left', {
-        y: -110,
-        opacity: 0,
-        scale: 0.95,
-        ease: 'none'
-    }, 0)
-    .to('.hero-video-stage', {
-        y: 70,
-        scale: 0.98,
-        filter: 'brightness(0.20)',
-        ease: 'none'
-    }, 0);
-
     // ── Section Headers Cinematic Reveal ──
     gsap.utils.toArray('.section-header').forEach(header => {
         gsap.from(header.children, {

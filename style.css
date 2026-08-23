@@ -2782,31 +2782,13 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   18. Scroll Reveal Animations
+   18. Scroll Reveal Animations (Default Visible)
    -------------------------------------------------------------------------- */
-.reveal-fade {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.85s var(--ease-spatial), transform 0.85s var(--ease-spatial);
-    transition-delay: var(--delay, 0s);
-}
-
-.reveal-title {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.95s var(--ease-spatial), transform 0.95s var(--ease-spatial);
-}
-
+.reveal-fade,
+.reveal-title,
 .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.85s var(--ease-spatial), transform 0.85s var(--ease-spatial);
-    transition-delay: var(--delay, 0s);
-}
-
-.is-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 1;
+    transform: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -2991,66 +2973,15 @@ ul {
     will-change: transform, opacity;
 }
 
-/* Hero Reveal Title (splits name in from bottom) */
-.reveal-title {
-    opacity: 0;
-    transform: translateY(60px) skewY(2deg);
-    transition: opacity 1s var(--ease-spatial) 0.05s,
-                transform 1s var(--ease-spatial) 0.05s;
-    will-change: transform, opacity;
-}
-
-.reveal-title.is-visible {
-    opacity: 1;
-    transform: translateY(0) skewY(0deg);
-}
-
 /* --------------------------------------------------------------------------
-   B. Warp-In Perspective Entrances (Section cards flying in)
+   B. Warp-In Perspective Entrances (Default Visible)
    -------------------------------------------------------------------------- */
-
-/* Cards slide in from left with perspective depth */
-.warp-enter-left {
-    opacity: 0;
-    transform: perspective(900px) rotateY(18deg) translateX(-60px);
-    transition: opacity 0.9s var(--ease-spatial), transform 0.9s var(--ease-spatial);
-}
-.warp-enter-left.is-visible {
-    opacity: 1;
-    transform: perspective(900px) rotateY(0deg) translateX(0px);
-}
-
-/* Cards fly in from right */
-.warp-enter-right {
-    opacity: 0;
-    transform: perspective(900px) rotateY(-18deg) translateX(60px);
-    transition: opacity 0.9s var(--ease-spatial), transform 0.9s var(--ease-spatial);
-}
-.warp-enter-right.is-visible {
-    opacity: 1;
-    transform: perspective(900px) rotateY(0deg) translateX(0px);
-}
-
-/* Cards zoom in from deep space */
-.warp-enter-depth {
-    opacity: 0;
-    transform: perspective(1000px) translateZ(-120px) scale(0.88);
-    transition: opacity 0.95s var(--ease-spatial), transform 0.95s var(--ease-spatial);
-}
-.warp-enter-depth.is-visible {
-    opacity: 1;
-    transform: perspective(1000px) translateZ(0px) scale(1);
-}
-
-/* Slide up with momentum */
+.warp-enter-left,
+.warp-enter-right,
+.warp-enter-depth,
 .warp-enter-up {
-    opacity: 0;
-    transform: translateY(80px) scale(0.96);
-    transition: opacity 0.85s var(--ease-spatial), transform 0.85s var(--ease-spatial);
-}
-.warp-enter-up.is-visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
 }
 
 /* --------------------------------------------------------------------------
