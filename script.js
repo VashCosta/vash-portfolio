@@ -257,7 +257,7 @@ function initGsapMagnetic() {
 }
 
 /* ------------------------------------------------------------------
-   5. Video & Audio System (Framed strictly below header)
+   5. Video & Audio System (Smart Global Audio Unlock & Full Control)
    ------------------------------------------------------------------ */
 function initVideoSystem() {
     const video    = document.getElementById('hero-bg-video');
@@ -271,22 +271,80 @@ function initVideoSystem() {
     video.loop   = false;
     video.volume = 1.0;
 
-    const playWithAudio = () => {
+    let soundUnlocked = false;
+
+    const enableSound = () => {
         video.muted = false;
-        return video.play().then(() => {
-            _enableSound(video, iconOff, iconOn, label, soundBtn);
-            sessionStorage.setItem('vivash_sound_on', '1');
-        }).catch(() => {
-            video.muted = true;
-            video.play().catch(() => {});
-            _disableSound(video, iconOff, iconOn, label, soundBtn);
+        video.volume = 1.0;
+        if (iconOff) iconOff.style.display = 'none';
+        if (iconOn)  iconOn.style.display  = 'inline-flex';
+        if (label)   label.textContent     = 'SOUND ON';
+        if (soundBtn) soundBtn.classList.add('is-on');
+        sessionStorage.setItem('vivash_sound_state', 'on');
+    };
+
+    const disableSound = () => {
+        video.muted = true;
+        if (iconOff) iconOff.style.display = 'inline-flex';
+        if (iconOn)  iconOn.style.display  = 'none';
+        if (label)   label.textContent     = 'SOUND OFF';
+        if (soundBtn) soundBtn.classList.remove('is-on');
+        sessionStorage.setItem('vivash_sound_state', 'off');
+    };
+
+    // Attempt unmuted autoplay immediately
+    video.muted = false;
+    video.play().then(() => {
+        enableSound();
+        soundUnlocked = true;
+    }).catch(() => {
+        // Autoplay policy prevented audio: start muted, listen for first user touch
+        video.muted = true;
+        video.play().catch(() => {});
+        disableSound();
+    });
+
+    // Auto-unmute on first user interaction anywhere on the viewport
+    const unlockAudioOnInteraction = () => {
+        if (soundUnlocked) return;
+        if (sessionStorage.getItem('vivash_explicit_mute') === '1') return;
+
+        video.muted = false;
+        video.volume = 1.0;
+        enableSound();
+        soundUnlocked = true;
+
+        ['click', 'touchstart', 'keydown'].forEach(evt => {
+            window.removeEventListener(evt, unlockAudioOnInteraction);
         });
     };
 
-    if (sessionStorage.getItem('vivash_sound_on') === '1') {
-        playWithAudio();
-    } else {
-        playWithAudio();
+    ['click', 'touchstart', 'keydown'].forEach(evt => {
+        window.addEventListener(evt, unlockAudioOnInteraction, { once: true, passive: true });
+    });
+
+    // Sound toggle button click
+    if (soundBtn) {
+        soundBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            soundUnlocked = true;
+
+            if (video.muted) {
+                sessionStorage.removeItem('vivash_explicit_mute');
+                enableSound();
+                if (video.ended) {
+                    const bgImg = document.getElementById('hero-bg-img');
+                    if (bgImg) bgImg.style.opacity = '0';
+                    video.style.display = '';
+                    video.style.opacity = '1';
+                    video.currentTime = 0;
+                }
+                video.play().catch(() => {});
+            } else {
+                sessionStorage.setItem('vivash_explicit_mute', '1');
+                disableSound();
+            }
+        });
     }
 
     // Video end -> smooth crossfade to hero-bg-img (vash_suit.jpeg) with 100% head visibility
@@ -300,46 +358,6 @@ function initVideoSystem() {
             video.style.display = 'none';
         }, 1900);
     });
-
-    // Sound toggle button
-    if (soundBtn) {
-        soundBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (video.muted) {
-                _enableSound(video, iconOff, iconOn, label, soundBtn);
-                sessionStorage.setItem('vivash_sound_on', '1');
-                if (video.ended) {
-                    const bgImg = document.getElementById('hero-bg-img');
-                    if (bgImg) bgImg.style.opacity = '0';
-                    video.style.display = '';
-                    video.style.opacity = '1';
-                    video.style.transition = '';
-                    video.currentTime = 0;
-                }
-                video.play().catch(() => {});
-            } else {
-                _disableSound(video, iconOff, iconOn, label, soundBtn);
-                sessionStorage.removeItem('vivash_sound_on');
-            }
-        });
-    }
-}
-
-function _enableSound(video, iconOff, iconOn, label, btn) {
-    video.muted  = false;
-    video.volume = 1.0;
-    if (iconOff) iconOff.style.display = 'none';
-    if (iconOn)  iconOn.style.display  = 'block';
-    if (label)   label.textContent     = 'SOUND ON';
-    if (btn)     btn.classList.add('is-on');
-}
-
-function _disableSound(video, iconOff, iconOn, label, btn) {
-    video.muted = true;
-    if (iconOff) iconOff.style.display = 'block';
-    if (iconOn)  iconOn.style.display  = 'none';
-    if (label)   label.textContent     = 'SOUND OFF';
-    if (btn)     btn.classList.remove('is-on');
 }
 
 /* ------------------------------------------------------------------
