@@ -1,10 +1,10 @@
 /* ==========================================================================
-   VIVASH VEL C.S. — GSAP LUXURY CINEMATIC ANIMATION ENGINE v5.0
+   VIVASH VEL C.S. — GSAP LUXURY CINEMATIC ANIMATION ENGINE v5.5
    - Powered by GSAP 3.12 & ScrollTrigger
-   - Orchestrated Hero Entry & Scroll-Scrub Parallax Exit
-   - Bi-directional 3D Spatial Section Warp-Ins & Staggered Reveals
-   - Spring-Physics Magnetic Buttons & Interactive Glass Depth
-   - Seamless Video -> Executive Portrait Crossfade (vash_suit.jpeg)
+   - Orchestrated Hero Entry with clearProps safety
+   - Full-Screen Mobile Drawer & Animated Hamburger Engine
+   - Physics Magnetic Buttons & Smooth Touch Swipe Slider
+   - Cross-Platform Video Autoplay & Smooth Audio Unlock
    ========================================================================== */
 
 // Register GSAP plugins
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ------------------------------------------------------------------
-   1. Scroll Progress Bar
+   1. Scroll Progress Bar & Nav Scroll States
    ------------------------------------------------------------------ */
 function initScrollProgressBar() {
     const prog = document.getElementById('scroll-progress');
@@ -49,218 +49,193 @@ function initScrollProgressBar() {
 }
 
 /* ------------------------------------------------------------------
-   2. GSAP Hero Entrance Sequence (Cinematic Orchestra)
+   2. GSAP Hero Entrance Sequence (With full clearProps safety)
    ------------------------------------------------------------------ */
 function initGsapHeroEntry() {
     if (typeof gsap === 'undefined') return;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.15 });
+    const tl = gsap.timeline({
+        defaults: { ease: 'power4.out' },
+        delay: 0.05,
+        onComplete: () => {
+            // Restore all default CSS styles to ensure 100% responsiveness & no stuck styles
+            gsap.set('#main-nav, .hero-video-stage, .hero-badge-container, .hero-headline, .hero-roles-cycler, .hero-manifesto, .hero-cta-group, .hero-cta-group .btn, #hero-work-btn, #hero-resume-btn, .hero-metrics-strip, #video-sound-btn', {
+                clearProps: 'transform,opacity,visibility,scale'
+            });
+        }
+    });
 
     // Top Navigation bar entrance
-    tl.from('#main-nav', {
-        y: -40,
+    tl.from('.floating-nav', {
+        y: -30,
         opacity: 0,
-        duration: 1.0,
+        duration: 0.6,
         ease: 'power3.out'
     }, 0);
 
     // Hero background video / image scale-in
     tl.from('.hero-video-stage', {
-        scale: 1.06,
+        scale: 1.04,
         opacity: 0,
-        duration: 1.8,
+        duration: 0.9,
         ease: 'power2.out'
-    }, 0.1);
+    }, 0.05);
 
     // Hero Badge
     tl.from('.hero-badge-container', {
+        y: 15,
+        opacity: 0,
+        duration: 0.4
+    }, 0.1);
+
+    // Headline: VIVASH VEL C.S.
+    tl.from('.hero-headline .name-first, .hero-headline .name-middle, .hero-headline .name-last', {
         y: 25,
         opacity: 0,
-        scale: 0.92,
-        duration: 0.75
-    }, 0.3);
-
-    // Headline: VIVASH VEL C.S. staggered word reveal
-    tl.from('.hero-headline .name-first, .hero-headline .name-middle, .hero-headline .name-last', {
-        y: 45,
-        opacity: 0,
-        rotationX: -12,
-        stagger: 0.1,
-        duration: 1.0,
+        stagger: 0.05,
+        duration: 0.5,
         ease: 'power4.out'
-    }, 0.45);
+    }, 0.15);
 
     // Roles Rotator
     tl.from('.hero-roles-cycler', {
-        y: 25,
+        y: 15,
         opacity: 0,
-        duration: 0.8
-    }, 0.7);
+        duration: 0.4
+    }, 0.25);
 
     // Manifesto description
     tl.from('.hero-manifesto', {
-        y: 20,
+        y: 15,
         opacity: 0,
-        duration: 0.8
-    }, 0.85);
+        duration: 0.4
+    }, 0.3);
 
     // CTA Button Group
     tl.from('.hero-cta-group .btn', {
-        y: 28,
+        y: 15,
         opacity: 0,
-        scale: 0.94,
-        stagger: 0.12,
-        duration: 0.85,
-        ease: 'back.out(1.3)'
-    }, 1.0);
+        stagger: 0.08,
+        duration: 0.45,
+        ease: 'back.out(1.2)'
+    }, 0.35);
 
     // Metrics Bar
     tl.from('.hero-metrics-strip .metric-block, .hero-metrics-strip .metric-sep', {
-        y: 20,
+        y: 15,
         opacity: 0,
-        stagger: 0.08,
-        duration: 0.75
-    }, 1.15);
+        stagger: 0.05,
+        duration: 0.4
+    }, 0.45);
 
     // Sound toggle button
     tl.from('#video-sound-btn', {
-        scale: 0.8,
+        scale: 0.85,
         opacity: 0,
-        duration: 0.8,
-        ease: 'back.out(1.5)'
-    }, 1.25);
+        duration: 0.45,
+        ease: 'back.out(1.4)'
+    }, 0.5);
 }
 
 /* ------------------------------------------------------------------
-   3. GSAP ScrollTrigger Effects & Parallax (Bi-directional Luxury)
+   3. GSAP ScrollTrigger Effects & Parallax
    ------------------------------------------------------------------ */
 function initGsapScrollEffects() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    // ── Section Headers Cinematic Reveal ──
-    gsap.utils.toArray('.section-header').forEach(header => {
+    // Respect user's motion preferences
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    // Section Headers Reveal
+    gsap.utils.toArray('.section-header-cinematic').forEach(header => {
         gsap.from(header.children, {
             scrollTrigger: {
                 trigger: header,
                 start: 'top 88%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none none',
+                once: true
             },
-            y: 35,
+            y: 30,
             opacity: 0,
-            stagger: 0.1,
-            duration: 0.8,
-            ease: 'power3.out'
+            stagger: 0.08,
+            duration: 0.7,
+            ease: 'power3.out',
+            clearProps: 'all'
         });
     });
 
-    // ── Spatial Project Carousel (Slide-in & Elevation) ──
-    const projWrapper = document.querySelector('.projects-carousel-wrapper');
-    if (projWrapper) {
-        gsap.from(projWrapper, {
-            scrollTrigger: {
-                trigger: projWrapper,
-                start: 'top 88%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.85,
-            ease: 'power3.out'
-        });
-    }
-
-    // ── Experience Timeline Entries ──
+    // Experience Timeline Entries
     gsap.utils.toArray('.timeline-entry').forEach(entry => {
         gsap.from(entry, {
             scrollTrigger: {
                 trigger: entry,
                 start: 'top 88%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none none',
+                once: true
             },
-            x: -30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-    });
-
-    // ── Skills Category Blocks & Pills Stagger ──
-    gsap.utils.toArray('.skill-category-block').forEach(block => {
-        const pills = block.querySelectorAll('.skill-pill-item');
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: block,
-                start: 'top 88%',
-                toggleActions: 'play none none reverse'
-            }
-        });
-
-        tl.from(block, {
-            y: 30,
+            x: -25,
             opacity: 0,
             duration: 0.7,
-            ease: 'power3.out'
-        })
-        .from(pills, {
-            scale: 0.8,
-            opacity: 0,
-            stagger: 0.03,
-            duration: 0.4,
-            ease: 'back.out(1.4)'
-        }, '-=0.3');
+            ease: 'power3.out',
+            clearProps: 'all'
+        });
     });
 
-    // ── Credentials / Education / Pillar / Skill Cards ──
-    gsap.utils.toArray('.cert-card, .cert-glass-card, .pillar-card, .edu-featured-card, .edu-card, .edu-secondary-card, .contact-card, .skills-col-card, .skill-row-item').forEach(card => {
+    // Cards (Profile, Pillars, Certifications, Education, Contact)
+    gsap.utils.toArray('.glass-panel, .spatial-glass-card, .pillar-card, .cert-glass-card, .channel-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: 'top 90%',
-                toggleActions: 'play none none reverse'
+                start: 'top 92%',
+                toggleActions: 'play none none none',
+                once: true
             },
-            y: 30,
+            y: 25,
             opacity: 0,
-            scale: 0.98,
-            duration: 0.7,
-            ease: 'power3.out'
+            duration: 0.6,
+            ease: 'power3.out',
+            clearProps: 'all'
         });
     });
 
-    // Refresh ScrollTrigger after assets load
+    // Refresh ScrollTrigger after full page assets load
     window.addEventListener('load', () => {
         ScrollTrigger.refresh();
     });
 }
 
 /* ------------------------------------------------------------------
-   4. Physics-Driven Magnetic Elements (GSAP quickTo)
+   4. Physics-Driven Magnetic Elements (Desktop Only)
    ------------------------------------------------------------------ */
 function initGsapMagnetic() {
     if (window.matchMedia('(pointer: coarse)').matches || typeof gsap === 'undefined') return;
 
-    document.querySelectorAll('.magnetic-btn, .nav-cta-btn, .social-link-btn').forEach(btn => {
+    document.querySelectorAll('.magnetic-btn, .nav-cta-btn').forEach(btn => {
         const xTo = gsap.quickTo(btn, 'x', { duration: 0.35, ease: 'power3.out' });
         const yTo = gsap.quickTo(btn, 'y', { duration: 0.35, ease: 'power3.out' });
 
         btn.addEventListener('mousemove', (e) => {
             const { left, top, width, height } = btn.getBoundingClientRect();
-            const x = (e.clientX - (left + width / 2)) * 0.35;
-            const y = (e.clientY - (top + height / 2)) * 0.35;
+            const x = (e.clientX - (left + width / 2)) * 0.3;
+            const y = (e.clientY - (top + height / 2)) * 0.3;
             xTo(x);
             yTo(y);
         });
 
         btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1.2, 0.4)' });
+            gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1.2, 0.4)' });
         });
     });
 }
 
 /* ------------------------------------------------------------------
-   5. Video & Audio System (Smart Global Audio Unlock & Full Control)
+   5. Video & Audio System (Smooth Mobile & Desktop Playback + Seamless Audio)
    ------------------------------------------------------------------ */
 function initVideoSystem() {
     const video    = document.getElementById('hero-bg-video');
+    const bgImg    = document.getElementById('hero-bg-img');
     const soundBtn = document.getElementById('video-sound-btn');
     const iconOff  = document.getElementById('sound-icon-off');
     const iconOn   = document.getElementById('sound-icon-on');
@@ -292,50 +267,96 @@ function initVideoSystem() {
         sessionStorage.setItem('vivash_sound_state', 'off');
     };
 
-    // Attempt unmuted autoplay immediately
-    video.muted = false;
-    video.play().then(() => {
-        enableSound();
-        soundUnlocked = true;
-    }).catch(() => {
-        // Autoplay policy prevented audio: start muted, listen for first user touch
-        video.muted = true;
-        video.play().catch(() => {});
-        disableSound();
+    // Transition smoothly to executive portrait image (vash_suit.jpeg)
+    const transitionToPortrait = () => {
+        sessionStorage.setItem('vivash_video_done', '1');
+        if (bgImg) {
+            bgImg.style.opacity = '1';
+        }
+        video.style.transition = 'opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        video.style.opacity    = '0';
+        setTimeout(() => {
+            if (video.style.opacity === '0') {
+                video.style.display = 'none';
+            }
+        }, 1600);
+    };
+
+    // 1. Guaranteed smooth autoplay: Start muted to prevent mobile browser pipeline rejection
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            if (sessionStorage.getItem('vivash_sound_state') === 'on' && sessionStorage.getItem('vivash_explicit_mute') !== '1') {
+                enableSound();
+                soundUnlocked = true;
+            } else {
+                disableSound();
+            }
+        }).catch(() => {
+            video.muted = true;
+            video.play().catch(() => {
+                transitionToPortrait();
+            });
+            disableSound();
+        });
+    }
+
+    // 2. Anti-Stall & Freeze Protection Watchdog
+    video.addEventListener('waiting', () => {
+        if (!video.ended && video.paused) {
+            video.play().catch(() => {});
+        }
     });
 
-    // Auto-unmute on first user interaction anywhere on the viewport
-    const unlockAudioOnInteraction = () => {
+    video.addEventListener('stalled', () => {
+        if (!video.ended && video.paused) {
+            video.play().catch(() => {});
+        }
+    });
+
+    video.addEventListener('error', () => {
+        transitionToPortrait();
+    });
+
+    // 3. Auto-unmute on first user interaction anywhere on the viewport
+    const unlockAudioOnInteraction = (e) => {
         if (soundUnlocked) return;
         if (sessionStorage.getItem('vivash_explicit_mute') === '1') return;
+
+        if (e && e.target && (soundBtn && (soundBtn === e.target || soundBtn.contains(e.target)))) {
+            return;
+        }
 
         video.muted = false;
         video.volume = 1.0;
         enableSound();
         soundUnlocked = true;
 
-        ['click', 'touchstart', 'keydown'].forEach(evt => {
+        ['click', 'touchstart', 'touchend', 'keydown'].forEach(evt => {
             window.removeEventListener(evt, unlockAudioOnInteraction);
         });
     };
 
-    ['click', 'touchstart', 'keydown'].forEach(evt => {
+    ['click', 'touchstart', 'touchend', 'keydown'].forEach(evt => {
         window.addEventListener(evt, unlockAudioOnInteraction, { once: true, passive: true });
     });
 
-    // Sound toggle button click
+    // 4. Sound toggle button click
     if (soundBtn) {
         soundBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            e.preventDefault();
             soundUnlocked = true;
 
-            if (video.muted) {
+            if (video.muted || video.ended || video.style.display === 'none') {
                 sessionStorage.removeItem('vivash_explicit_mute');
                 enableSound();
-                if (video.ended) {
-                    const bgImg = document.getElementById('hero-bg-img');
+                
+                if (video.ended || video.style.display === 'none' || video.style.opacity === '0') {
                     if (bgImg) bgImg.style.opacity = '0';
-                    video.style.display = '';
+                    video.style.display = 'block';
+                    video.style.transition = 'opacity 0.6s ease';
                     video.style.opacity = '1';
                     video.currentTime = 0;
                 }
@@ -347,16 +368,9 @@ function initVideoSystem() {
         });
     }
 
-    // Video end -> smooth crossfade to hero-bg-img (vash_suit.jpeg) with 100% head visibility
+    // 5. Video ended -> Smooth crossfade to executive portrait image
     video.addEventListener('ended', () => {
-        sessionStorage.setItem('vivash_video_done', '1');
-        const bgImg = document.getElementById('hero-bg-img');
-        if (bgImg) bgImg.style.opacity = '1';
-        video.style.transition = 'opacity 1.8s ease';
-        video.style.opacity    = '0';
-        setTimeout(() => {
-            video.style.display = 'none';
-        }, 1900);
+        transitionToPortrait();
     });
 }
 
@@ -376,14 +390,16 @@ function initHeroRolesRotator() {
 }
 
 /* ------------------------------------------------------------------
-   7. Scrollspy & Mobile Navigation
+   7. Scrollspy & Mobile Navigation Drawer (Luxury Polish)
    ------------------------------------------------------------------ */
 function initScrollspyAndNav() {
-    const navLinks = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section[id]');
+    const navLinks        = document.querySelectorAll('.nav-item');
+    const sections        = document.querySelectorAll('section[id]');
     const mobileToggle    = document.getElementById('mobile-toggle');
     const navLinksWrapper = document.getElementById('nav-links');
+    const mainNav         = document.getElementById('main-nav');
 
+    // Scrollspy Observer
     const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
@@ -391,24 +407,74 @@ function initScrollspyAndNav() {
                 navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
             }
         });
-    }, { rootMargin: '-25% 0px -55% 0px', threshold: 0 });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
 
     sections.forEach(s => obs.observe(s));
 
-    if (mobileToggle && navLinksWrapper) {
-        mobileToggle.addEventListener('click', () => {
-            const open = navLinksWrapper.classList.toggle('mobile-open');
-            mobileToggle.setAttribute('aria-expanded', open);
-        });
-        navLinks.forEach(l => l.addEventListener('click', () => {
-            navLinksWrapper.classList.remove('mobile-open');
+    // Mobile Menu Toggle Function
+    const closeMobileMenu = () => {
+        if (!navLinksWrapper) return;
+        navLinksWrapper.classList.remove('mobile-open');
+        if (mobileToggle) {
+            mobileToggle.classList.remove('is-active');
             mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+        document.body.classList.remove('nav-locked');
+    };
+
+    const openMobileMenu = () => {
+        if (!navLinksWrapper) return;
+        navLinksWrapper.classList.add('mobile-open');
+        if (mobileToggle) {
+            mobileToggle.classList.add('is-active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+        }
+        document.body.classList.add('nav-locked');
+    };
+
+    if (mobileToggle && navLinksWrapper) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navLinksWrapper.classList.contains('mobile-open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close on nav link click
+        navLinks.forEach(l => l.addEventListener('click', () => {
+            closeMobileMenu();
         }));
+
+        // Close when clicking outside of nav
+        document.addEventListener('click', (e) => {
+            if (navLinksWrapper.classList.contains('mobile-open')) {
+                if (mainNav && !mainNav.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinksWrapper.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Auto-close when resizing above tablet breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 868 && navLinksWrapper.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        });
     }
 }
 
 /* ------------------------------------------------------------------
-   8. Contact Form (Direct Delivery to Personal Email vivashvel2019@gmail.com)
+   8. Contact Form (Direct Delivery via FormSubmit API + Mailto Fallback)
    ------------------------------------------------------------------ */
 function initContactForm() {
     const form     = document.getElementById('cinematic-contact-form');
@@ -448,7 +514,6 @@ function initContactForm() {
         };
 
         try {
-            // Attempt direct AJAX transmission to personal email via FormSubmit API
             const response = await fetch('https://formsubmit.co/ajax/vivashvel2019@gmail.com', {
                 method: 'POST',
                 headers: {
@@ -460,16 +525,15 @@ function initContactForm() {
 
             if (response.ok) {
                 feedback.className = 'form-feedback-message success';
-                feedback.innerHTML = `✓ <strong>Secure Transmission Confirmed</strong>. Thank you, <strong>${name}</strong>. Your message and credentials have been routed directly to Vivash. Encrypted confirmation logged — response expected within 24 hours.`;
+                feedback.innerHTML = `✓ <strong>Secure Transmission Confirmed</strong>. Thank you, <strong>${name}</strong>. Your message and credentials have been routed directly to Vivash. Confirmation logged — response expected within 24 hours.`;
                 feedback.style.display = 'block';
                 form.reset();
             } else {
                 throw new Error('Direct endpoint response error');
             }
         } catch (err) {
-            // Reliable client fallback to mailto if network or adblock blocks AJAX
             feedback.className = 'form-feedback-message success';
-            feedback.innerHTML = `✓ <strong>Routing via Secure Mail Client</strong>. Launching your email composer to transmit your credentials to Vivash...`;
+            feedback.innerHTML = `✓ <strong>Routing via Secure Mail Client</strong>. Launching your email composer to transmit your inquiry to Vivash...`;
             feedback.style.display = 'block';
 
             const mailBody = `Hello Vivash,
@@ -500,14 +564,14 @@ Profile/Portfolio: ${credentials}
 }
 
 /* ------------------------------------------------------------------
-   9. Resume Modal
+   9. Resume Modal System
    ------------------------------------------------------------------ */
 window.openResumeModal = () => {
     const m = document.getElementById('resume-modal');
     if (!m) return;
     m.classList.add('open');
     m.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-locked');
 };
 
 window.closeResumeModal = () => {
@@ -515,7 +579,7 @@ window.closeResumeModal = () => {
     if (!m) return;
     m.classList.remove('open');
     m.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-locked');
 };
 
 function initModalEvents() {
@@ -526,7 +590,7 @@ function initModalEvents() {
 }
 
 /* ------------------------------------------------------------------
-   10. Projects Collection Slider (Swipe Left & Track Drag)
+   10. Projects Collection Slider (Swipe & Touch Tracking)
    ------------------------------------------------------------------ */
 let currentProjectIndex = 0;
 
@@ -543,24 +607,20 @@ function initProjectsCollectionSlider() {
     function updateActiveState(idx) {
         currentProjectIndex = Math.max(0, Math.min(idx, slides.length - 1));
         
-        // Update Indicator
         if (ind) {
             const formatted = (currentProjectIndex + 1 < 10 ? '0' : '') + (currentProjectIndex + 1);
             const total = (slides.length < 10 ? '0' : '') + slides.length;
             ind.textContent = `${formatted} / ${total}`;
         }
 
-        // Update Active Tag
         if (tag && slides[currentProjectIndex]) {
             tag.textContent = slides[currentProjectIndex].getAttribute('data-tag') || 'FEATURED';
         }
 
-        // Update Dots
         dots.forEach((d, i) => {
             d.classList.toggle('active', i === currentProjectIndex);
         });
 
-        // Update Progress Bar
         if (prog) {
             prog.style.width = `${((currentProjectIndex + 1) / slides.length) * 100}%`;
         }
@@ -589,10 +649,10 @@ function initProjectsCollectionSlider() {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
             const scrollLeft = track.scrollLeft;
-            const cardWidth = slides[0].offsetWidth + 32; // card + gap
+            const cardWidth = slides[0].offsetWidth + 28;
             const activeIdx = Math.round(scrollLeft / cardWidth);
             updateActiveState(activeIdx);
-        }, 60);
+        }, 50);
     }, { passive: true });
 
     // Touch Swipe Left/Right Gesture Handlers
@@ -611,13 +671,10 @@ function initProjectsCollectionSlider() {
         const diffX = touchEndX - touchStartX;
         const diffY = touchEndY - touchStartY;
 
-        // Ensure horizontal intent
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
             if (diffX < 0) {
-                // Swiped Left -> Go Next
                 window.nextProject();
             } else {
-                // Swiped Right -> Go Prev
                 window.prevProject();
             }
         }
@@ -664,6 +721,5 @@ function initProjectsCollectionSlider() {
         }
     });
 
-    // Initial state
     updateActiveState(0);
 }

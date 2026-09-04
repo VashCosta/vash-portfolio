@@ -111,9 +111,10 @@
                 <!-- Static portrait layer: fallback & seamless post-video crossfade -->
                 <img id="hero-bg-img" class="hero-bg-img" src="vash_suit.jpeg" alt="Vivash Vel Portrait" aria-hidden="true">
 
-                <!-- Primary video layer: autoplay muted for browser compat -->
+                <!-- Primary video layer: autoplay muted for universal browser & mobile compat -->
                 <video id="hero-bg-video" class="hero-bg-video" src="port_video.mp4" poster="vash_suit.jpeg" autoplay
-                    muted playsinline preload="auto" aria-hidden="true">
+                    muted playsinline webkit-playsinline="true" x5-playsinline="true" disablepictureinpicture
+                    preload="auto" aria-hidden="true">
                 </video>
 
                 <!-- Dark cinematic grading layer -->
